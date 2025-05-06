@@ -1,0 +1,6 @@
+@MiPrimeraAPIMichu_HostAddress = http://localhost:5123
+
+GET {{MiPrimeraAPIMichu_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
