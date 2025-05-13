@@ -29,14 +29,54 @@ namespace MiPrimeraAPIMichu.Controllers
         {
             try
             {
-                var bicicleta = repository.ObtenerInformacionBicicleta( id);
+                var bicicleta = repository.ObtenerInformacionBicicleta(id);
                 return Ok(bicicleta);
 
             }
             catch (Exception )
             {
-                Console.WriteLine();
-                throw;
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult CrearBicicleta([FromBody] Bicicleta bicicleta)
+        {
+            bool guardar = repository.CrearBicicleta(bicicleta);
+            if (guardar)
+            {
+                return Ok("Guardado corectamente");
+            }
+            else
+            {
+                return StatusCode(500, "Error al guardar los datos");
+            }
+        }
+        [HttpPut]
+        public IActionResult ActualizarBicicleta([FromBody] Bicicleta bicicleta)
+        {
+            bool guardar = repository.ActualizarBicicleta(bicicleta);
+            if (guardar)
+            {
+                return Ok("Guardado corectamente");
+            }
+            else
+            {
+                return StatusCode(500, "Error al guardar los datos");
+            }
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult EliminarBicicleta(int id)
+        {
+            bool guardar = repository.EliminarBicicleta(id);
+            if (guardar)
+            {
+                return Ok("Guardado corectamente");
+            }
+            else
+            {
+                return StatusCode(500, "Error al guardar los datos");
             }
         }
     }

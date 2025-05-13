@@ -35,4 +35,21 @@ public class BicicletasRepository
         var bicicleta = ObtenerListadoBicicletas().First(x => x.id == id);
         return bicicleta;
     }
+
+    public bool ActualizarBicicleta(Bicicleta bicicleta)
+    {
+        //Lógica para actualizar bicicleta
+        return true;
+    }
+
+    public bool EliminarBicicleta(int id)
+    {
+        //Lógica para eliminar bicicleta
+        return false;
+    }
+    public bool CrearBicicleta(Bicicleta bicicleta)
+    {
+        //Lógica para eliminar bicicleta
+        return false;
+    }
 }
